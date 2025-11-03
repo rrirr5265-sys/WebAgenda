@@ -2,40 +2,57 @@
 <html lang="ca">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestor de Tasques - Agenda Fàcil</title>
+    <title>Gestor de Tasques</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <main class="app-container">
+    <main>
         <header>
-            <h1>Agenda de Tasques Fàcil</h1>
+            <h1>Agenda de Tasques</h1>
         </header>
 
-        <section class="main-content">
-            <h2>Vista Setmanal</h2>
+        <table style="width: 100%; border-collapse: collapse; table-layout: fixed; background-color: #ffffff;">
+            <thead style="background-color: #f4f6f8; color: #34495e;">
+                <tr>
+                    <th colspan="2" style="padding: 10px 5px; border: 1px solid #dcdcdc; text-align: center; vertical-align: middle;">
+                        <button class="boto-navegacio">⬅️ Setmana Anterior</button>
+                    </th>
+                    <th colspan="3" style="padding: 10px 5px; border: 1px solid #dcdcdc; text-align: center; vertical-align: middle;">
+                        <h2>Vista Setmanal</h2>
+                        <span style="font-weight: bold; color: #34495e;">[RANG DE DATES]</span>
+                    </th>
+                    <th colspan="2" style="padding: 10px 5px; border: 1px solid #dcdcdc; text-align: center; vertical-align: middle;">
+                        <button class="boto-navegacio">Setmana Següent ➡️</button>
+                    </th>
+                </tr>
 
-            <nav id="week-navigation" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <button id="prev-week-button" class="nav-button">⬅️ Setmana Anterior</button>
-                <span id="current-week-display" style="font-weight: bold; color: #34495e;"></span>
-                <button id="next-week-button" class="nav-button">Setmana Següent ➡️</button>
-            </nav>
-            
-            <section class="agenda-grid" id="agenda-grid-container">
-                </section>
+                <tr>
+                    <th style="padding: 10px 5px; border: 1px solid #dcdcdc; text-align: center; vertical-align: middle;">DILLUNS</th>
+                    <th style="padding: 10px 5px; border: 1px solid #dcdcdc; text-align: center; vertical-align: middle;">DIMARTS</th>
+                    <th style="padding: 10px 5px; border: 1px solid #dcdcdc; text-align: center; vertical-align: middle;">DIMECRES</th>
+                    <th style="padding: 10px 5px; border: 1px solid #dcdcdc; text-align: center; vertical-align: middle;">DIJOUS</th>
+                    <th style="padding: 10px 5px; border: 1px solid #dcdcdc; text-align: center; vertical-align: middle;">DIVENDRES</th>
+                    <th style="padding: 10px 5px; border: 1px solid #dcdcdc; text-align: center; vertical-align: middle;">DISSABTE</th>
+                    <th style="padding: 10px 5px; border: 1px solid #dcdcdc; text-align: center; vertical-align: middle;">DIUMENGE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 10px 5px; border: 1px solid #dcdcdc; text-align: center; vertical-align: middle;">Tasques de Dilluns</td>
+                    <td style="padding: 10px 5px; border: 1px solid #dcdcdc; text-align: center; vertical-align: middle;">Tasques de Dimarts</td>
+                    <td style="padding: 10px 5px; border: 1px solid #dcdcdc; text-align: center; vertical-align: middle;">Tasques de Dimecres</td>
+                    <td style="padding: 10px 5px; border: 1px solid #dcdcdc; text-align: center; vertical-align: middle;">Tasques de Dijous</td>
+                    <td style="padding: 10px 5px; border: 1px solid #dcdcdc; text-align: center; vertical-align: middle;">Tasques de Divendres</td>
+                    <td style="padding: 10px 5px; border: 1px solid #dcdcdc; text-align: center; vertical-align: middle;">Tasques de Dissabte</td>
+                    <td style="padding: 10px 5px; border: 1px solid #dcdcdc; text-align: center; vertical-align: middle;">Tasques de Diumenge</td>
+                </tr>
+            </tbody>
+        </table>
+           
+        <button class="boto-flotant fab-boto-crear"></button>
 
-        </section>
-        
-        <button class="fab-button fab-create-button" id="create-task-fab">+</button>
-
-        <button class="fab-button fab-month-button" id="month-selector-fab">📅</button>
+        <button class="boto-flotant fab-boto-mes">📅</button>
 
     </main>
-
-    <dialog id="customModal" class="custom-modal">
-        <div class="custom-alert-content" id="modalContent">
-            </div>
-    </dialog>
-
-    <script src="script.js"></script>
 </body>
 </html>

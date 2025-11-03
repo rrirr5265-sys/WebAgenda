@@ -1,9 +1,7 @@
 /* PROPIETATS GENERALS */
 body {
     font-family: 'Inter', Arial, sans-serif;
-    /* Fons simple per reemplaçar l'animació */
     background-color: #f0f4f8; 
-    
     margin: 0;
     padding: 20px;
     display: flex;
@@ -12,19 +10,10 @@ body {
     min-height: 100vh;
 }
 
-/* CONTENIDOR PRINCIPAL (Estil de "Bloc Sòlid") */
-.app-container {
-    position: relative; 
-    width: 100%;
-    max-width: 900px; 
-    background-color: #555555; /* Gris fosc sòlid */
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    padding: 0;
+header {
+    background-color: #34495e; /* Fons fosc per la capçalera */
 }
 
-/* ESTILS DE LA CAPÇALERA I TÍTOLS */
 h1 {
     text-align: center;
     font-family: 'Inter', Arial, sans-serif;
@@ -32,7 +21,6 @@ h1 {
     color: #ecf0f1;
     padding: 15px 0;
     margin: 0;
-    background-color: #444444;
 }
 
 h2 {
@@ -41,48 +29,25 @@ h2 {
     font-family: 'Inter', Arial, sans-serif;
     font-size: 24px;
     color: #2c3e50;
-    margin-top: 0;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #bdc3c7;
-    margin-bottom: 15px;
-}
-
-/* CONTENIDOR DE CONTINGUT (BLANC) */
-.main-content {
-    padding: 25px;
-    /* Padding inferior per evitar que el FAB tapi el contingut */
-    padding-bottom: 100px; 
-    background-color: #ffffff;
-    color: #34495e;
+    margin: 0;
+    padding-bottom: 5px;
 }
 
 /* --- BOTONS DE NAVEGACIÓ SETMANAL --- */
-.nav-button {
-    background-color: #bdc3c7; /* Gris clar */
+.boto-navegacio { 
+    background-color: #bdc3c7; 
     color: #34495e;
     border: none;
-    padding: 10px 15px;
+    padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.1s;
+    transition: background-color 0.3s ease;
     font-size: 0.9em;
 }
 
-.nav-button:hover {
-    background-color: #aeb6bf;
-}
-.nav-button:active {
-    transform: scale(0.98);
-}
-
-
-/* --- BOTONS FLOTANTS D'ACCIÓ (FAB) --- */
-
-/* Estil BASE i POSICIÓ COMÚ */
-.fab-button {
-    /* Fixat a la pantalla per no desplaçar-se amb l'scroll */
-    position: fixed; 
+/* --- MOSTRA BOTONS FLOTANTS SENSE ESTAR FLOTANT --- */
+.mostra-boto-flotant {  
     bottom: 40px; 
     color: white;
     padding: 0; 
@@ -95,215 +60,52 @@ h2 {
     transition: all 0.3s ease;
     cursor: pointer;
     z-index: 100;
-    display: flex; /* Per centrar el text o l'emoji */
+    display: flex; 
     justify-content: center;
     align-items: center;
 }
 
-/* Botó Selecció Mes (DRETA, BLAU) */
-.fab-month-button {
+/* --- BOTONS FLOTANTS D'ACCIÓ (FAB) --- */
+
+.boto-flotant {     
+    position: fixed;
+    bottom: 40px; 
+    color: white;
+    padding: 0; 
+    border: none;
+    border-radius: 50%; 
+    font-size: 28px;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    z-index: 100;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+/* Botó Selecció Mes/Saltar */
+.fab-boto-mes { 
     right: 40px; 
     background: linear-gradient(145deg, #3498db, #2980b9); /* Blau */
 }
 
-/* Botó Creació Tasca (ESQUERRA, VERD) */
-.fab-create-button {
+/* Botó Creació Tasca */
+.fab-boto-crear { 
     left: 40px; 
     background: linear-gradient(145deg, #2ecc71, #27ae60); /* Verd */
 }
 
-/* Icona del botó Crear Tasca (+) */
-.fab-create-button::after {
+.fab-boto-crear::after {
     content: '+';
     font-size: 38px;
     line-height: 1;
     display: block;
 }
 
-/* Efectes Hover */
-.fab-button:hover {
+.boto-flotant:hover {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
     transform: scale(1.05);
-}
-
-.fab-button:active {
-    transform: scale(0.95);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-}
-
-/* --- ESTIL GRID PER LA VISTA D'AGENDA --- */
-
-.agenda-grid {
-    display: grid;
-    /* Columnes responsives: mínim 200px per columna */
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-    gap: 15px;
-    padding-top: 10px;
-}
-
-/* BLOC DE CADA DIA */
-.day-block {
-    background-color: #f8f8f8;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden; 
-    height: fit-content;
-}
-
-/* Encapçalament del dia */
-.daily-task-header { 
-    background-color: #bbbbbb; 
-    color: #333333;
-    padding: 10px 15px;
-    margin: 0;
-    font-weight: bold;
-    font-size: 1em;
-    text-align: center;
-}
-
-/* Missatge sense tasques */
-.no-tasks-msg {
-    text-align: center; 
-    font-size: 0.9em; 
-    padding: 10px; 
-    color: #7f8c8d;
-}
-
-/* Llista de tasques */
-.task-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px; 
-    list-style: none;
-    padding: 10px;
-    margin: 0;
-}
-
-/* Tasca individual */
-.task-item {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: space-between;
-    align-items: flex-start;
-    background-color: #e5e7eb; 
-    padding: 10px;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
-    cursor: pointer; 
-}
-
-.task-item.completed {
-    background-color: #d1e7dd;
-    opacity: 0.8;
-}
-
-/* Estils per a l'expansió (Detalls de la tasca) */
-.task-details {
-    max-height: 0;
-    overflow: hidden;
-    width: 100%;
-    padding-top: 0;
-    font-size: 0.85em;
-    color: #555555;
-    transition: max-height 0.3s ease-in-out, padding-top 0.3s ease;
-}
-
-.task-item.expanded .task-details {
-    max-height: 150px; 
-    padding-top: 8px;
-    border-top: 1px dashed #c0c0c0;
-    margin-top: 8px;
-}
-
-.task-text {
-    flex-grow: 1;
-    font-size: 16px;
-    color: #333333;
-    max-width: calc(100% - 40px); 
-}
-
-.task-checkbox {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    margin-left: 10px;
-    flex-shrink: 0; 
-    accent-color: #2ecc71;
-}
-
-/* --- Estils per al MODAL de creació de tasques --- */
-.custom-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Fons semi-transparent fosc */
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.custom-alert-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    max-width: 400px;
-    width: 90%;
-    color: #333;
-}
-
-/* Estil del botó Tancar del Modal */
-.custom-alert-content .modal-close-button {
-    background: linear-gradient(145deg, #3498db, #2980b9);
-    margin-top: 15px;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-    font-weight: bold;
-}
-
-.custom-alert-content .modal-close-button:hover {
-    background: #2980b9;
-}
-
-/* Estils dels elements del Formulari de Creació de Tasques */
-.task-creation-form label {
-    display: block; 
-    text-align: left; 
-    margin-top: 10px;
-    font-weight: bold;
-    color: #555555;
-}
-
-.task-creation-form input[type="text"], 
-.task-creation-form textarea, 
-.task-creation-form input[type="date"] {
-    width: 100%; 
-    padding: 8px; 
-    margin-bottom: 15px; 
-    border: 1px solid #ccc; 
-    border-radius: 4px; 
-    box-sizing: border-box;
-}
-
-.task-creation-form .submit-button {
-    background: linear-gradient(145deg, #2ecc71, #27ae60); 
-    color: white; 
-    border: none; 
-    padding: 10px 20px; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    transition: background-color 0.3s; 
-    font-weight: bold;
-}
-.task-creation-form .submit-button:hover {
-    background: #27ae60;
 }
